@@ -1,0 +1,14 @@
+section.no_pad {
+  .content_wrapper {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.popular_header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 40px;
+}

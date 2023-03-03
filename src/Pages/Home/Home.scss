@@ -1,0 +1,123 @@
+.content_header {
+  padding-left: 40px;
+  padding-right: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  h2 {
+    margin-right: 20px;
+    white-space: nowrap;
+    font-size: 1.5em;
+    margin: 0 0 4px 0;
+    font-weight: 600;
+  }
+
+  .btn {
+    border-radius: 4px;
+  }
+  .active {
+    background: rgba(3, 37, 65, 1);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transition: left 0.25s;
+  }
+}
+
+.content_main {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+
+  .content {
+    width: 100%;
+    max-width: 1300px;
+    min-height: 0;
+    height: auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    transition: height 0.5s linear;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    white-space: nowrap;
+
+    .card {
+      width: 150px;
+      min-width: 150px;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      margin-top: 0;
+      overflow: visible;
+      position: relative;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      border-radius: 8px;
+      max-width: calc((1300px - 80px - 260px - 30px * 5 / 5));
+      margin-left: 20px;
+
+      &:first-child {
+        margin-left: 40px;
+      }
+
+      .card-content {
+        width: 100%;
+        padding: 16px 10px 12px 10px;
+        position: relative;
+        white-space: normal;
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+
+        h2 {
+          font-size: 1em;
+          width: 100%;
+          word-wrap: normal;
+          overflow-wrap: break-word;
+          font-weight: 600;
+        }
+      }
+
+      .image {
+        box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+        border-radius: 8px;
+        width: 100%;
+        min-height: calc(150px * 1.5);
+        height: calc(150px * 1.5);
+        background: #dbdbdb;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.should_fade::after {
+  content: '';
+  width: 60px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  will-change: opacity;
+  pointer-events: none;
+}
+
+.is_fading::after {
+  transition: linear 0.3s;
+  opacity: 1;
+}

@@ -1,0 +1,102 @@
+.inner_block {
+  width: 100%;
+
+  &:first-of-type {
+    margin-top: 20px;
+  }
+
+  &:last-of-type {
+    margin-bottom: 20px;
+  }
+
+  .inner_content {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .content {
+      max-width: 1400px;
+      width: 100%;
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-top: 0;
+      padding-bottom: 0;
+
+      h2 {
+        font-size: 1.5em;
+        margin: 0 0 4px 0;
+        font-weight: 700;
+      }
+
+      .results {
+        display: flex;
+        align-items: flex-start;
+        align-content: flex-start;
+        justify-content: space-between;
+        .card {
+          box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+          border: 1px solid rgba(227, 227, 227, 1);
+        }
+        .item.profile {
+          float: none;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+        }
+        .item.card {
+          background-color: #fff;
+          box-sizing: border-box;
+        }
+        .item.profile.card {
+          flex-wrap: wrap;
+          width: 235px;
+        }
+        .item {
+          margin: 30px 0 0 0;
+          color: #000;
+        }
+
+        .image_content {
+          width: 235px;
+          height: 235px;
+          margin: 0;
+          overflow: visible;
+          display: flex;
+          align-items: center;
+        }
+        .meta {
+          padding: 8px 10px;
+          width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+          p {
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+            line-height: 1.2em;
+          }
+
+          .name {
+            font-weight: 600;
+            font-size: 1.1em;
+          }
+
+          .sub {
+            font-size: 0.9em;
+            font-weight: 400;
+            color: rgba(0, 0, 0, 0.6);
+            display: block;
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}
