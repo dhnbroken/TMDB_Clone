@@ -1,13 +1,12 @@
 import moment from 'moment';
-import React, { useEffect, useState } from 'react';
-import { getTVPopular } from '../../API/tv';
+import React, { useContext, useEffect } from 'react';
+import { GlobalContext } from '../../Context/GlobalContext';
 
 import './Popular.scss';
 
 const Popular = () => {
   const baseURL = 'https://www.themoviedb.org/t/p/w220_and_h330_face/';
-
-  // console.log(tvPopular[0]?.name.toLowerCase().split(' ').join('-'));
+  const { getTV, tvPopular } = useContext(GlobalContext);
 
   useEffect(() => {
     getTV();

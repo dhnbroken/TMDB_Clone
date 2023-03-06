@@ -30,6 +30,7 @@ const Genres = () => {
         genres.map((genre, index) => (
           <li
             key={index}
+            id={genre.id}
             className={`genres_items ${selected.find((select) => select === genre.name) ? 'selected' : ''}`}
             onClick={() => handleSelected(genre)}
           >
