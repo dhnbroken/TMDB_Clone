@@ -4,13 +4,12 @@ import './SearchBar.scss';
 import SearchResults from './SearchResults';
 import { useDetectClickOutside } from 'react-detect-click-outside';
 import { GlobalContext } from '../../Context/GlobalContext';
-import { useNavigate } from 'react-router-dom';
+import { createSearchParams, useNavigate } from 'react-router-dom';
 
 const SearchBar = ({ hideSearchBar }) => {
   const navigate = useNavigate();
   const { searchMovies, searchPeople, searchTvShows } = useContext(GlobalContext);
   const [searchQuery, setSearchQuery] = useState('');
-  const [select, setSelect] = useState('');
   const [show, setShow] = useState(false);
   const hideSearchResults = () => {
     setShow(false);
@@ -26,7 +25,7 @@ const SearchBar = ({ hideSearchBar }) => {
       searchTvShows(searchQuery);
       setShow(false);
       setSearchQuery('');
-      navigate('/search');
+      navigate({ pathname: '/search', search: createSearchParams({ q: searchQuery }).toString() });
     }
   };
 

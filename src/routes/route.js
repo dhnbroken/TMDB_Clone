@@ -1,3 +1,4 @@
+import Details from '../Pages/Details/Details';
 import Home from '../Pages/Home/Home';
 import Movie from '../Pages/Movie/Movie';
 import People from '../Pages/People/People';
@@ -8,6 +9,7 @@ export const publicRoute = [
   { path: '/', component: Home },
   { path: '/movie', component: Movie },
   { path: '/tv', component: TV },
+  { path: '/tv/:movieId', component: Details },
   { path: '/people', component: People },
   { path: '/search', component: Search },
 ];

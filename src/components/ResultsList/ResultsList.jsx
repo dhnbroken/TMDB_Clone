@@ -6,7 +6,7 @@ const ResultsList = ({ active }) => {
   const { movieSearchResults, tvSearchResults, peopleSearchResults } = useContext(GlobalContext);
 
   return (
-    <div className="white_column">
+    <div className="white_column reverse">
       {active === 'Movies' && !movieSearchResults.length && <div>There are no movies that matched your query.</div>}
       {active === 'TV' && !movieSearchResults.length && <div>There are no TV Shows that matched your query.</div>}
       {active === 'People' && !movieSearchResults.length && <div>There are no person that matched your query.</div>}

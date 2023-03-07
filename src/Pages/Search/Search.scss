@@ -64,6 +64,11 @@ ul.panel {
   }
 }
 
+.reverse {
+  padding-right: 0;
+  padding-left: 30px;
+}
+
 .white_column {
   background-color: #fff;
   width: calc(100vw - 80px - 268px);
@@ -71,7 +76,7 @@ ul.panel {
   display: flex;
   flex-wrap: wrap;
   flex: 0 1 auto;
-  padding-left: 30px;
+  padding-right: 30px;
 }
 
 section.panel {
