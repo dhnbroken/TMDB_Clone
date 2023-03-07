@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Avatar, Grid } from '@mui/material';
 import { Add, Close, Notifications, Search } from '@mui/icons-material/';
 import './Navbar.scss';
 import { Link } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
+import { GlobalContext } from '../../Context/GlobalContext';
 
 const Navbar = () => {
-  const [hide, setHide] = useState(true);
-
+  const { hideSearchBar, setHideSearchBar } = useContext(GlobalContext);
   return (
     <header>
       <div className="w-100">
@@ -40,14 +40,14 @@ const Navbar = () => {
               <div className="language">En</div>
               <Notifications />
               <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg" sx={{ lineHeight: 1.6 }} />
-              <div className="cursor-pointer" onClick={() => setHide(!hide)}>
-                {!hide ? <Close /> : <Search color="primary" />}
+              <div className="cursor-pointer" onClick={() => setHideSearchBar(!hideSearchBar)}>
+                {!hideSearchBar ? <Close /> : <Search color="primary" />}
               </div>
             </div>
           </Grid>
         </Grid>
       </div>
-      <SearchBar hide={hide} />
+      <SearchBar hideSearchBar={hideSearchBar} />
     </header>
   );
 };

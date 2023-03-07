@@ -14,7 +14,7 @@ const Trending = () => {
   };
 
   useEffect(() => {
-    getTrending();
+    getTrending('all', alignment);
   }, [alignment]);
 
   return (

@@ -1,0 +1,28 @@
+const initialState = {
+  movies: [],
+  setMovies: () => {},
+  getMovies: () => {},
+  loading: true,
+  setLoading: () => {},
+  tvPopular: [],
+  setTVPopular: () => {},
+  getTV: () => {},
+  trending: [],
+  setTrending: () => {},
+  getTrending: () => {},
+  alignment: 'day',
+  setAlignment: () => {},
+  hideSearchBar: true,
+  setHideSearchBar: () => {},
+  searchMulti: () => {},
+  searchResults: [],
+  setSearchResults: () => {},
+  searchMovies: () => {},
+  searchTvShows: () => {},
+  searchPeople: () => {},
+  movieSearchResults: [],
+  tvSearchResults: [],
+  peopleSearchResults: [],
+};
+
+export default initialState;

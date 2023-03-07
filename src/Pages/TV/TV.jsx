@@ -14,8 +14,6 @@ const TV = () => {
     getTV();
   }, []);
 
-  console.log(loading);
-
   return (
     <>
       {loading ? (

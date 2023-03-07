@@ -15,7 +15,6 @@ const People = () => {
     getPeoplePopular();
   }, []);
 
-  console.log(peoplePopular);
   return (
     <div className="inner_block">
       <div className="inner_content">
