@@ -28,7 +28,7 @@
     .content_main {
       min-height: 0;
       height: auto;
-      max-width: 1400px;
+      max-width: var(--page-max-width);
       overflow-x: scroll;
       overflow-y: hidden;
       transition: height 0.5s linear;
@@ -49,7 +49,7 @@
         background: transparent;
         border: none;
         box-shadow: none;
-        border-radius: 8px;
+        border-radius: var(--imageBorderRadius);
         align-items: flex-start;
         margin-left: 20px;
 
@@ -71,7 +71,7 @@
           }
           .wrapper {
             display: block;
-            border-radius: 8px;
+            border-radius: var(--imageBorderRadius);
             overflow: hidden;
             position: relative;
             top: 0;

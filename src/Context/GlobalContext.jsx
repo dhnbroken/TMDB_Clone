@@ -19,6 +19,17 @@ export const GlobalProvider = ({ children }) => {
   const [tvSearchResults, setTvSearchResults] = useState([]);
   const [peopleSearchResults, setPeopleSearchResults] = useState([]);
 
+  const [details, setDetails] = useState([]);
+  const [credits, setCredits] = useState([]);
+  const [externalId, setExternalId] = useState([]);
+  const [keywords, setKeywords] = useState([]);
+  const [recommend, setRecommend] = useState([]);
+
+  const [person, setPerson] = useState([]);
+  const [personTvCre, setPersonTvCre] = useState([]);
+  const [personMovieCre, setPersonMovieCre] = useState([]);
+  const [personExId, setPersonExId] = useState([]);
+
   const getTrending = async (type, alignment) => {
     try {
       const res = await getTrendingList(type, alignment);
@@ -97,6 +108,24 @@ export const GlobalProvider = ({ children }) => {
         movieSearchResults,
         tvSearchResults,
         peopleSearchResults,
+        details,
+        setDetails,
+        credits,
+        setCredits,
+        externalId,
+        setExternalId,
+        keywords,
+        setKeywords,
+        recommend,
+        setRecommend,
+        person,
+        setPerson,
+        personTvCre,
+        setPersonTvCre,
+        personMovieCre,
+        setPersonMovieCre,
+        personExId,
+        setPersonExId,
       }}
     >
       {children}

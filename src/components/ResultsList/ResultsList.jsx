@@ -1,15 +1,21 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { GlobalContext } from '../../Context/GlobalContext';
 
 const ResultsList = ({ active }) => {
-  const base_url = 'https://www.themoviedb.org/t/p/w94_and_h141_bestv2';
   const { movieSearchResults, tvSearchResults, peopleSearchResults } = useContext(GlobalContext);
-
+  console.log(movieSearchResults.results);
   return (
     <div className="white_column reverse">
-      {active === 'Movies' && !movieSearchResults.length && <div>There are no movies that matched your query.</div>}
-      {active === 'TV' && !movieSearchResults.length && <div>There are no TV Shows that matched your query.</div>}
-      {active === 'People' && !movieSearchResults.length && <div>There are no person that matched your query.</div>}
+      {active === 'Movies' && !movieSearchResults?.results?.length && (
+        <div>There are no movies that matched your query.</div>
+      )}
+      {active === 'TV' && !tvSearchResults?.results?.length && (
+        <div>There are no TV Shows that matched your query.</div>
+      )}
+      {active === 'People' && !peopleSearchResults?.results?.length && (
+        <div>There are no person that matched your query.</div>
+      )}
       <section className="panel">
         <div className="search_results">
           <div className="results flex">
@@ -20,7 +26,9 @@ const ResultsList = ({ active }) => {
                     <div className="wrapper">
                       <div className="image">
                         <div className="poster">
-                          <img src={base_url + movie.poster_path} alt="" />
+                          <Link to={`/movie/${movie.id}`} state={{ trend: { media_type: 'movie', ...movie } }}>
+                            <img src={import.meta.env.VITE_SEARCH_RESULT_IMG_URL + movie.poster_path} alt="" />
+                          </Link>
                         </div>
                       </div>
                       <div className="details">
@@ -46,7 +54,9 @@ const ResultsList = ({ active }) => {
                     <div className="wrapper">
                       <div className="image">
                         <div className="poster">
-                          <img src={base_url + tv.poster_path} alt="" />
+                          <Link to={`/tv/${tv.id}`} state={{ trend: { media_type: 'tv', ...tv } }}>
+                            <img src={import.meta.env.VITE_SEARCH_RESULT_IMG_URL + tv.poster_path} alt="" />
+                          </Link>
                         </div>
                       </div>
                       <div className="details">
@@ -75,7 +85,7 @@ const ResultsList = ({ active }) => {
                           <img
                             src={
                               person.profile_path !== null
-                                ? base_url + person.profile_path
+                                ? import.meta.env.VITE_SEARCH_RESULT_IMG_URL + person.profile_path
                                 : 'https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg'
                             }
                             alt=""

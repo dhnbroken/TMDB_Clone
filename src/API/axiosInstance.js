@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-  baseURL: 'https://api.themoviedb.org/3',
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   timeout: 15000,
-  params: { api_key: 'dce9c766a4ee375e740b9bd4fdc6e0df', language: 'en-US' },
+  params: { api_key: import.meta.env.VITE_API_KEY, language: 'en-US' },
 });
 
 axiosInstance.interceptors.response.use(

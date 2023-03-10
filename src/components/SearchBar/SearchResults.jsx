@@ -4,7 +4,7 @@ import { createSearchParams, useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../../Context/GlobalContext';
 import useDebounce from '../../utils/useDebounce';
 
-const SearchResults = ({ searchQuery, show, setShow }) => {
+const SearchResults = ({ searchQuery, setSearchQuery, show, setShow }) => {
   const navigate = useNavigate();
   const { trending, searchMulti, setSearchResults, searchResults, searchMovies, searchPeople, searchTvShows } =
     useContext(GlobalContext);
@@ -29,6 +29,7 @@ const SearchResults = ({ searchQuery, show, setShow }) => {
     searchMovies(query);
     searchPeople(query);
     searchTvShows(query);
+    setSearchQuery('');
     setShow(false);
   };
   return (

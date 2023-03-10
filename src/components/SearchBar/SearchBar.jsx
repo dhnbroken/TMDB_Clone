@@ -51,7 +51,7 @@ const SearchBar = ({ hideSearchBar }) => {
             </form>
           </div>
         </section>
-        <SearchResults searchQuery={searchQuery} show={show} setShow={setShow} />
+        <SearchResults searchQuery={searchQuery} setSearchQuery={setSearchQuery} show={show} setShow={setShow} />
       </div>
     </React.Fragment>
   );

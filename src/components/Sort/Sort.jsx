@@ -5,33 +5,41 @@ import { GlobalContext } from '../../Context/GlobalContext';
 
 const Sort = () => {
   const [show, setShow] = useState(true);
-  const { movies, setMovies } = useContext(GlobalContext);
+  const { movies, setMovies, tvPopular, setTVPopular } = useContext(GlobalContext);
   const [sortSelection, setSortSelection] = React.useState('1');
 
   const handleChange = (event) => {
     setSortSelection(event.target.value);
     const newMovies = [...movies];
+    const newTVPopular = [...tvPopular];
     switch (event.target.value) {
       case 1:
         setMovies(newMovies.sort((min, max) => max.popularity - min.popularity));
+        setTVPopular(newTVPopular.sort((min, max) => max.popularity - min.popularity));
         break;
       case 2:
         setMovies(newMovies.sort((min, max) => min.popularity - max.popularity));
+        setTVPopular(newTVPopular.sort((min, max) => min.popularity - max.popularity));
         break;
       case 3:
         setMovies(newMovies.sort((min, max) => max.vote_average - min.vote_average));
+        setTVPopular(newTVPopular.sort((min, max) => max.vote_average - min.vote_average));
         break;
       case 4:
         setMovies(newMovies.sort((min, max) => min.vote_average - max.vote_average));
+        setTVPopular(newTVPopular.sort((min, max) => min.vote_average - max.vote_average));
         break;
       case 5:
         setMovies(newMovies.sort((min, max) => new Date(max.release_date) - new Date(min.release_date)));
+        setTVPopular(newTVPopular.sort((min, max) => new Date(max.first_air_date) - new Date(min.first_air_date)));
         break;
       case 6:
         setMovies(newMovies.sort((min, max) => new Date(min.release_date) - new Date(max.release_date)));
+        setTVPopular(newTVPopular.sort((min, max) => new Date(min.first_air_date) - new Date(max.first_air_date)));
         break;
       case 7:
         setMovies(newMovies.sort((min, max) => min.title.localeCompare(max.title)));
+        setTVPopular(newTVPopular.sort((min, max) => min.name.localeCompare(max.name)));
         break;
       default:
         break;

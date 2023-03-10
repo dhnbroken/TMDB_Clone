@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getPeople } from '../../API/people';
 import './People.scss';
 const People = () => {
-  const base_url = 'https://www.themoviedb.org/t/p/w235_and_h235_face';
   const [peoplePopular, setPeoplePopular] = useState([]);
+  console.log(peoplePopular);
   const getPeoplePopular = async () => {
     try {
       const res = await getPeople();
@@ -21,12 +22,14 @@ const People = () => {
         <div className="content">
           <h2>Popular People</h2>
           <div className="results wrap">
-            {peoplePopular.length &&
+            {!!peoplePopular.length &&
               peoplePopular.map((person, index) => (
                 <div className="square" key={index}>
                   <div className="item profile card">
                     <div className="image_content">
-                      <img src={base_url + person.profile_path} alt="" />
+                      <Link to={`/people/${person.id}`}>
+                        <img src={import.meta.env.VITE_PEOPLE_AVATAR_IMG_URL + person.profile_path} alt="" />
+                      </Link>
                     </div>
                     <div className="meta">
                       <p className="name">{person.name}</p>

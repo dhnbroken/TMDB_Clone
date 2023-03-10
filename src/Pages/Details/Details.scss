@@ -3,13 +3,12 @@
   background-position: left calc((50vw - 170px) - 340px) top;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url('https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/rqbCbjB19amtOtFQbb3K2lgm2zv.jpg');
   width: 100%;
   position: relative;
   z-index: 1;
 
   .single_column {
-    max-width: 1400px;
+    max-width: var(--page-max-width);
     width: 100%;
     z-index: 0;
     box-sizing: border-box;
@@ -44,7 +43,7 @@
   width: 300px;
   height: 450px;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: var(--imageBorderRadius);
 
   .poster {
     display: block;

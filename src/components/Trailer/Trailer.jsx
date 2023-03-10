@@ -5,7 +5,7 @@ import TrailerCard from './TrailerCard';
 
 const Trailer = () => {
   return (
-    <section className="inner_content bg_image">
+    <section className="inner_content bg_image no_pad">
       <div className="column_wrapper">
         <div className="trailer scroller_wrap">
           <div className="content_wrapper">

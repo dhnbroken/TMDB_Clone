@@ -8,7 +8,6 @@ import { GlobalContext } from '../../Context/GlobalContext';
 import './Trending.scss';
 const Trending = () => {
   const navigate = useNavigate();
-  const baseURL = 'https://www.themoviedb.org/t/p/w220_and_h330_face/';
   const { trending, getTrending, setAlignment, alignment } = useContext(GlobalContext);
 
   const handleChange = (event, newAlignment) => {
@@ -19,8 +18,19 @@ const Trending = () => {
     getTrending('all', alignment);
   }, [alignment]);
 
+  const handleNavigateToDetails = (trend) => {
+    switch (trend.media_type) {
+      case 'tv':
+        navigate(`/tv/${trend.id}`, { state: { trend: trend } });
+        break;
+      case 'movie':
+        navigate(`/movie/${trend.id}`, { state: { trend: trend } });
+      default:
+        break;
+    }
+  };
   return (
-    <section className="inner_content trending">
+    <section className="inner_content trending no_pad">
       <div className="column_wrapper">
         <div className="content_wrapper wrap">
           <div className="w-100">
@@ -46,13 +56,9 @@ const Trending = () => {
             <div className="content">
               {!!trending.length &&
                 trending.map((trend, index) => (
-                  <div
-                    className="card"
-                    key={index}
-                    onClick={() => navigate(`/tv/${trend.id}`, { state: { trend: trend } })}
-                  >
+                  <div className="card cursor-pointer" key={index} onClick={() => handleNavigateToDetails(trend)}>
                     <div className="image">
-                      <img src={baseURL + trend.poster_path} alt="" />
+                      <img src={import.meta.env.VITE_POSTER_PATH_URL + trend.poster_path} alt="" />
                     </div>
                     <div className="card-content">
                       <h2>{trend.title || trend.name}</h2>

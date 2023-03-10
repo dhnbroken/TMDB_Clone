@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import DefaultLayout from '../Layout/DefaultLayout';
+import NotFound from '../Pages/NotFound/NotFound';
 import { publicRoute } from './route';
 
 const ProjectRoute = () => {
@@ -17,6 +18,7 @@ const ProjectRoute = () => {
           }
         />
       ))}
+      <Route path="/*" element={<NotFound />} />
     </Routes>
   );
 };

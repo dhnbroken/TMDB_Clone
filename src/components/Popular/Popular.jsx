@@ -5,7 +5,6 @@ import { GlobalContext } from '../../Context/GlobalContext';
 import './Popular.scss';
 
 const Popular = () => {
-  const baseURL = 'https://www.themoviedb.org/t/p/w220_and_h330_face/';
   const { getTV, tvPopular } = useContext(GlobalContext);
 
   useEffect(() => {
@@ -26,7 +25,7 @@ const Popular = () => {
                   tvPopular.map((tv, index) => (
                     <div className="card" key={index}>
                       <div className="image">
-                        <img src={baseURL + tv.poster_path} alt="" />
+                        <img src={import.meta.env.VITE_POSTER_PATH_URL + tv.poster_path} alt="" />
                       </div>
                       <div className="card-content">
                         <h2>{tv.name}</h2>

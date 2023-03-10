@@ -5,7 +5,7 @@ const TrailerCard = () => {
     <div className="video_card">
       <div className="image">
         <div className="wrapper">
-          <img src="https://www.themoviedb.org/t/p/w355_and_h200_multi_faces/uDgy6hyPd82kOHh6I95FLtLnj6p.jpg" alt="" />
+          <img src={`${import.meta.env.VITE_TRAILER_IMG_URL}/uDgy6hyPd82kOHh6I95FLtLnj6p.jpg`} alt="" />
           <div className="play">
             <span className="play_icon"></span>
           </div>
